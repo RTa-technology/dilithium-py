@@ -89,6 +89,11 @@ so you can simply import the NIST level you want to play with:
 >>> assert not Dilithium2.verify(pk, b"", sig)
 >>> pk_new, sk_new = Dilithium2.keygen()
 >>> assert not Dilithium2.verify(pk_new, msg, sig)
+>>> 
+>>> # Generate a new public key from the secret key
+>>> pk_new2 = Dilithium2.gen_public_key(sk)
+>>> sig = Dilithium2.sign(sk, msg)
+>>> assert Dilithium2.verify(pk_new2, msg, sig)
 ```
 
 The above example would also work with the other NIST levels
